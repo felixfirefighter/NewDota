@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import * as actions from "../../actions/teamActions";
 import LoadingComponent from "../layout/LoadingComponent";
 import MatchList from "../match/MatchList";
+import PlayerList from "../players/PlayerList";
+import HeroList from "../heroes/HeroList";
 
 class TeamOverview extends Component {
   componentDidMount() {
@@ -23,10 +25,29 @@ class TeamOverview extends Component {
     return <MatchList matches={sliced} />;
   };
 
+  renderPlayers = () => {
+    const { players } = this.props.teams;
+    if (players.length === 0) return;
+
+    const activePlayers = players.filter(
+      player => player.is_current_team_member
+    );
+
+    if (activePlayers.length === 0) return;
+
+    return <PlayerList players={activePlayers} />;
+  };
+
+  renderHeroes = () => {
+    const { heroes } = this.props.teams;
+    if (heroes.length === 0) return;
+
+    const sliced = heroes.slice(0, 10);
+    return <HeroList heroes={sliced} />;
+  };
+
   render() {
     const { matches, players, heroes } = this.props.teams;
-
-    console.log(matches);
 
     return (
       <Grid>
@@ -44,6 +65,37 @@ class TeamOverview extends Component {
                 </Table.Row>
               </Table.Header>
               <Table.Body>{this.renderMatches()}</Table.Body>
+            </Table>
+          </Segment>
+        </Grid.Column>
+        <Grid.Column width={6}>
+          <Segment basic>
+            {players.length === 0 && <LoadingComponent />}
+            <Header as="h2" inverted content="Current Players" />
+            <Table striped inverted>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Name</Table.HeaderCell>
+                  <Table.HeaderCell>Games</Table.HeaderCell>
+                  <Table.HeaderCell>Win Rate</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>{this.renderPlayers()}</Table.Body>
+            </Table>
+          </Segment>
+
+          <Segment basic>
+            {heroes.length === 0 && <LoadingComponent />}
+            <Header as="h2" inverted content="Most Played Heroes" />
+            <Table striped inverted>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Name</Table.HeaderCell>
+                  <Table.HeaderCell>Games</Table.HeaderCell>
+                  <Table.HeaderCell>Win Rate</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>{this.renderHeroes()}</Table.Body>
             </Table>
           </Segment>
         </Grid.Column>
