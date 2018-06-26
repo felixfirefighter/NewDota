@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Table, Header, Progress, Icon } from "semantic-ui-react";
+import { getWinRate } from "../../utils/numberUtil";
 
-const PlayerListItem = ({
+const TeamPlayerListItem = ({
   account_id,
   games_played,
   max_games_played,
   name,
   wins
 }) => {
-  const winRate = ((wins / games_played) * 100).toFixed(2);
   return (
     <Table.Row key={account_id}>
       <Table.Cell>
@@ -40,7 +40,7 @@ const PlayerListItem = ({
         <Header
           as="h5"
           inverted
-          content={winRate}
+          content={getWinRate(wins, games_played)}
           style={{ marginBottom: "4px" }}
         />
         <Progress
@@ -56,4 +56,4 @@ const PlayerListItem = ({
   );
 };
 
-export default PlayerListItem;
+export default TeamPlayerListItem;

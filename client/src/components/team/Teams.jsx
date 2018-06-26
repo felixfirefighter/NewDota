@@ -24,7 +24,7 @@ class Teams extends Component {
     return (
       <Segment basic>
         {teams.length === 0 && <LoadingComponent />}
-        <Header as="h2" inverted content="Team Ranking" />
+        <Header as="h1" inverted content="Team Ranking" />
         <Table striped inverted sortable>
           <Table.Header>
             <Table.Row>

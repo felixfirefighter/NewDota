@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
-
-import MatchListItem from "./MatchListItem";
+import MatchListItem from "./TeamMatchListItem";
 
 const MatchList = ({ matches }) => {
   return (

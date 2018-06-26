@@ -7,7 +7,7 @@ const Navbar = () => {
     <Menu inverted fixed="top">
       <Container>
         <Menu.Item as={Link} to="/" header>
-          <Header inverted content="freeDota" />
+          <Header inverted content="FreeDota" />
         </Menu.Item>
         <Menu.Item as={NavLink} to="/teams" name="Teams" />
         <Menu.Item as={NavLink} to="/matches" name="Matches" />

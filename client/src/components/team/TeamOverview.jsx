@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import { Table, Header, Grid, Segment } from "semantic-ui-react";
+import { Table, Header, Grid, Segment, Item, Label } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 import * as actions from "../../actions/teamActions";
 import LoadingComponent from "../layout/LoadingComponent";
-import MatchList from "../match/MatchList";
-import PlayerList from "../players/PlayerList";
-import HeroList from "../heroes/HeroList";
+import TeamMatchList from "./TeamMatchList";
+import TeamPlayerList from "./TeamPlayerList";
+import TeamHeroList from "./TeamHeroList";
 
 class TeamOverview extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
 
+    this.props.getTeam(id);
     this.props.getTeamMatches(id);
     this.props.getTeamPlayers(id);
     this.props.getTeamHeroes(id);
@@ -22,7 +23,7 @@ class TeamOverview extends Component {
     if (matches.length === 0) return;
 
     const sliced = matches.slice(0, 20);
-    return <MatchList matches={sliced} />;
+    return <TeamMatchList matches={sliced} />;
   };
 
   renderPlayers = () => {
@@ -35,7 +36,7 @@ class TeamOverview extends Component {
 
     if (activePlayers.length === 0) return;
 
-    return <PlayerList players={activePlayers} />;
+    return <TeamPlayerList players={activePlayers} />;
   };
 
   renderHeroes = () => {
@@ -43,18 +44,54 @@ class TeamOverview extends Component {
     if (heroes.length === 0) return;
 
     const sliced = heroes.slice(0, 10);
-    return <HeroList heroes={sliced} />;
+    return <TeamHeroList heroes={sliced} />;
   };
 
   render() {
-    const { matches, players, heroes } = this.props.teams;
+    const { team, matches, players, heroes } = this.props.teams;
+
+    // console.log(heroes);
+    console.log(team);
 
     return (
       <Grid>
+        <Grid.Column width={16}>
+          <Item.Group>
+            <Item>
+              <Item.Image size="small" src={team.logo_url} />
+
+              <Item.Content verticalAlign="middle">
+                <Header as="h1" inverted style={{ color: "#fff" }}>
+                  {team.name}
+                </Header>
+                <div style={{ display: "flex" }}>
+                  <div style={{ margin: "16px 16px 0 0" }}>
+                    <Label color="green" size="large">
+                      WINS
+                      <Label.Detail>{team.wins}</Label.Detail>
+                    </Label>
+                  </div>
+                  <div style={{ margin: "16px 16px 0 0" }}>
+                    <Label color="red" size="large">
+                      LOSSES
+                      <Label.Detail>{team.losses}</Label.Detail>
+                    </Label>
+                  </div>
+                  <div style={{ margin: "16px 16px 0 0" }}>
+                    <Label color="yellow" size="large">
+                      RATING
+                      <Label.Detail>{team.rating}</Label.Detail>
+                    </Label>
+                  </div>
+                </div>
+              </Item.Content>
+            </Item>
+          </Item.Group>
+        </Grid.Column>
         <Grid.Column width={10}>
           <Segment basic>
             {matches.length === 0 && <LoadingComponent />}
-            <Header as="h2" inverted content="Team Ranking" />
+            <Header as="h2" inverted content="Recent Matches" />
             <Table striped inverted sortable>
               <Table.Header>
                 <Table.Row>

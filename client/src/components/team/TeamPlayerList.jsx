@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import _ from "lodash";
-import PlayerListItem from "./PlayerListItem";
+import TeamPlayerListItem from "./TeamPlayerListItem";
 
-const PlayerList = ({ players }) => {
+const TeamPlayerList = ({ players }) => {
   let maxGamesPlayed = _.maxBy(players, "games_played");
 
   maxGamesPlayed = maxGamesPlayed ? maxGamesPlayed.games_played : 0;
@@ -11,7 +11,7 @@ const PlayerList = ({ players }) => {
     <Fragment>
       {players.map(player => {
         return (
-          <PlayerListItem
+          <TeamPlayerListItem
             key={player.account_id}
             max_games_played={maxGamesPlayed}
             {...player}
@@ -22,4 +22,4 @@ const PlayerList = ({ players }) => {
   );
 };
 
-export default PlayerList;
+export default TeamPlayerList;

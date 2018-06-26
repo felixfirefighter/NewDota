@@ -1,21 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Table, Header, Progress, Icon } from "semantic-ui-react";
+import { Table, Header, Progress, Icon, Image } from "semantic-ui-react";
+import { getHeroImage } from "../../utils/imageUtil";
+import { getWinRate } from "../../utils/numberUtil";
 
-const PlayerListItem = ({
+const TeamHeroListItem = ({
   games_played,
   max_games_played,
   localized_name,
   hero_id,
   wins
 }) => {
-  const winRate = ((wins / games_played) * 100).toFixed(2);
-
   return (
-    <Table.Row key={hero_id}>
+    <Table.Row>
       <Table.Cell>
         <Header as="h5" inverted>
+          <Image size="massive" src={getHeroImage(localized_name)} />
           <Header.Content as={Link} to={`/heroes/${hero_id}`}>
             {localized_name} <Icon name="angle right" />
           </Header.Content>
@@ -41,7 +42,7 @@ const PlayerListItem = ({
         <Header
           as="h5"
           inverted
-          content={winRate}
+          content={getWinRate(wins, games_played)}
           style={{ marginBottom: "4px" }}
         />
         <Progress
@@ -57,4 +58,4 @@ const PlayerListItem = ({
   );
 };
 
-export default PlayerListItem;
+export default TeamHeroListItem;

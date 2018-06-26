@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   GET_TEAMS,
+  GET_TEAM,
   GET_TEAM_MATCHES,
   GET_TEAM_PLAYERS,
   GET_TEAM_HEROES
@@ -13,6 +14,11 @@ import {
 export const getTeams = () => async dispatch => {
   const res = await axios.get("/teams");
   dispatch({ type: GET_TEAMS, payload: res.data });
+};
+
+export const getTeam = id => async dispatch => {
+  const res = await axios.get(`/teams/${id}`);
+  dispatch({ type: GET_TEAM, payload: res.data });
 };
 
 export const getTeamMatches = id => async dispatch => {

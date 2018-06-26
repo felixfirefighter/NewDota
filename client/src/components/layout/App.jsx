@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import Teams from "../team/Teams";
 import TeamOverview from "../team/TeamOverview";
 import Matches from "../match/Matches";
+import MatchOverview from "../match/MatchOverview";
 
 axios.defaults.baseURL = "https://api.opendota.com/api";
 
@@ -16,12 +17,13 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Navbar />
-          <Container style={{ paddingTop: "50px" }}>
+          <Container style={{ paddingTop: "80px" }}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/teams" component={Teams} />
               <Route exact path="/teams/:id" component={TeamOverview} />
               <Route exact path="/matches" component={Matches} />
+              <Route exact path="/matches/:id" component={MatchOverview} />
             </Switch>
           </Container>
         </div>
