@@ -1,5 +1,6 @@
 import React from "react";
-import { Table } from "semantic-ui-react";
+import { Table, Header, Icon } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 import LeagueComponent from "../layout/LeagueComponent";
 import DurationComponent from "../layout/DurationComponent";
@@ -27,6 +28,38 @@ const MatchListItem = ({
       </Table.Cell>
       <Table.Cell>
         <DurationComponent duration={duration} start_time={start_time} />
+      </Table.Cell>
+      <Table.Cell>
+        <Header as="h5" inverted>
+          <Header.Content>
+            <Link
+              to={`/teams/${radiant_team_id}`}
+              style={{ marginRight: "4px" }}
+            >
+              {radiant_name}
+            </Link>{" "}
+            {radiant_win && <Icon name="trophy" className="yellow inverted" />}
+          </Header.Content>
+        </Header>
+      </Table.Cell>
+
+      <Table.Cell>
+        <Header as="h5" inverted>
+          <Header.Content>
+            <Link to={`/teams/${dire_team_id}`} style={{ marginRight: "4px" }}>
+              {dire_name}
+            </Link>{" "}
+            {!radiant_win && <Icon name="trophy" className="yellow inverted" />}
+          </Header.Content>
+        </Header>
+      </Table.Cell>
+      <Table.Cell>
+        <div style={{ display: "flex" }}>
+          <p style={{ marginBottom: "0px" }}>
+            <span className="green inverted">{radiant_score}</span> :{" "}
+            <span className="red inverted">{dire_score}</span>
+          </p>
+        </div>
       </Table.Cell>
     </Table.Row>
   );

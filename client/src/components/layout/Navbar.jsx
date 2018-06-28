@@ -11,6 +11,7 @@ const Navbar = () => {
         </Menu.Item>
         <Menu.Item as={NavLink} to="/teams" name="Teams" />
         <Menu.Item as={NavLink} to="/matches" name="Matches" />
+        <Menu.Item as={NavLink} to="/heroes" name="Heroes" />
       </Container>
     </Menu>
   );

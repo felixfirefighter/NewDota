@@ -56,37 +56,39 @@ class TeamOverview extends Component {
     return (
       <Grid>
         <Grid.Column width={16}>
-          <Item.Group>
-            <Item>
-              <Item.Image size="small" src={team.logo_url} />
+          <Segment basic>
+            <Item.Group>
+              <Item>
+                <Item.Image size="small" src={team.logo_url} />
 
-              <Item.Content verticalAlign="middle">
-                <Header as="h1" inverted style={{ color: "#fff" }}>
-                  {team.name}
-                </Header>
-                <div style={{ display: "flex" }}>
-                  <div style={{ margin: "16px 16px 0 0" }}>
-                    <Label color="green" size="large">
-                      WINS
-                      <Label.Detail>{team.wins}</Label.Detail>
-                    </Label>
+                <Item.Content verticalAlign="middle">
+                  <Header as="h1" inverted style={{ color: "#fff" }}>
+                    {team.name}
+                  </Header>
+                  <div style={{ display: "flex" }}>
+                    <div style={{ margin: "16px 16px 0 0" }}>
+                      <Label color="green" size="large">
+                        WINS
+                        <Label.Detail>{team.wins}</Label.Detail>
+                      </Label>
+                    </div>
+                    <div style={{ margin: "16px 16px 0 0" }}>
+                      <Label color="red" size="large">
+                        LOSSES
+                        <Label.Detail>{team.losses}</Label.Detail>
+                      </Label>
+                    </div>
+                    <div style={{ margin: "16px 16px 0 0" }}>
+                      <Label color="yellow" size="large">
+                        RATING
+                        <Label.Detail>{team.rating}</Label.Detail>
+                      </Label>
+                    </div>
                   </div>
-                  <div style={{ margin: "16px 16px 0 0" }}>
-                    <Label color="red" size="large">
-                      LOSSES
-                      <Label.Detail>{team.losses}</Label.Detail>
-                    </Label>
-                  </div>
-                  <div style={{ margin: "16px 16px 0 0" }}>
-                    <Label color="yellow" size="large">
-                      RATING
-                      <Label.Detail>{team.rating}</Label.Detail>
-                    </Label>
-                  </div>
-                </div>
-              </Item.Content>
-            </Item>
-          </Item.Group>
+                </Item.Content>
+              </Item>
+            </Item.Group>
+          </Segment>
         </Grid.Column>
         <Grid.Column width={10}>
           <Segment basic>
