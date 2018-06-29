@@ -18,7 +18,6 @@ class ProMatches extends Component {
     return (
       <div>
         <Segment basic>
-          <Header as="h1" inverted content="Matches" />
           <Table striped inverted>
             <Table.Header>
               <Table.Row>

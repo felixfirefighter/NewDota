@@ -1,0 +1,8 @@
+.hero {
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.hero:hover {
+  transform: scale(1.2);
+}

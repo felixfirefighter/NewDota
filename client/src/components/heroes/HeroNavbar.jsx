@@ -4,14 +4,14 @@ import { NavLink } from "react-router-dom";
 
 class MatchNavbar extends Component {
   componentDidMount() {
-    if (this.props.location.pathname === "/matches") {
-      this.props.history.replace("/matches/pro");
+    if (this.props.location.pathname === "/heroes") {
+      this.props.history.replace("/heroes/stats");
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.location.pathname === "/matches") {
-      nextProps.history.replace("/matches/pro");
+    if (nextProps.location.pathname === "/heroes") {
+      nextProps.history.replace("/matches/stats");
     }
   }
 
@@ -19,8 +19,8 @@ class MatchNavbar extends Component {
     return (
       <Segment basic>
         <Menu secondary inverted widths={2}>
-          <Menu.Item as={NavLink} to="/matches/pro" name="Professional" />
-          <Menu.Item as={NavLink} to="/matches/public" name="Public" />
+          <Menu.Item as={NavLink} to="/heroes/stats" name="Stats" />
+          <Menu.Item as={NavLink} to="/heroes/misc" name="Misc" />
         </Menu>
       </Segment>
     );

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Image } from "semantic-ui-react";
+import { Image, Grid } from "semantic-ui-react";
 import * as actions from "../../actions/heroActions";
 import { getHeroImage } from "../../utils/imageUtil";
+
+import "./heroes.css";
 
 class Heroes extends Component {
   componentDidMount() {
@@ -11,20 +13,27 @@ class Heroes extends Component {
 
   render() {
     const { heroes } = this.props.heroes;
-
+    console.log(heroes);
     return (
-      <div>
+      <Grid>
         {heroes.map(hero => {
           return (
-            <Image
-              size="tiny"
-              src={`${getHeroImage(hero.localized_name)}`}
-              inline
-              style={{ margin: "4px" }}
-            />
+            <Grid.Column
+              key={hero.id}
+              style={{
+                padding: "4px"
+              }}
+            >
+              <Image
+                className="hero"
+                size="tiny"
+                src={`${getHeroImage(hero.localized_name)}`}
+                inline
+              />
+            </Grid.Column>
           );
         })}
-      </div>
+      </Grid>
     );
   }
 }

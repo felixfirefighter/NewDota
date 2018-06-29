@@ -11,6 +11,8 @@ import ProMatches from "../match/ProMatches";
 import PublicMatches from "../match/PublicMatches";
 import MatchOverview from "../match/MatchOverview";
 import Heroes from "../heroes/Heroes";
+import HeroNavbar from "../heroes/HeroNavbar";
+import HeroStats from "../heroes/HeroStats";
 
 axios.defaults.baseURL = "https://api.opendota.com/api";
 
@@ -28,10 +30,15 @@ class App extends Component {
             <Switch>
               <Route exact path="/matches/pro" component={ProMatches} />
               <Route exact path="/matches/public" component={PublicMatches} />
-
               <Route exact path="/matches/:id" component={MatchOverview} />
             </Switch>
-            <Route exact path="/heroes" component={Heroes} />
+
+            <Route path="/heroes" component={HeroNavbar} />
+
+            <Switch>
+              <Route exact path="/heroes/stats" component={HeroStats} />
+              <Route exact path="/heroes/misc" component={Heroes} />
+            </Switch>
           </Container>
         </div>
       </BrowserRouter>

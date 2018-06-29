@@ -13,12 +13,11 @@ class PublicMatches extends Component {
   render() {
     const { publicMatches } = this.props.matches;
 
-    console.log(publicMatches);
+    // console.log(publicMatches);
 
     return (
       <div>
         <Segment basic>
-          <Header as="h1" inverted content="Matches" />
           <Table striped inverted>
             <Table.Header>
               <Table.Row>
