@@ -19,7 +19,7 @@ const HeroPortrait = ({ hero, imageStyle }) => {
             className="hero"
             size="tiny"
             style={imageStyle}
-            src={`${getHeroImage(hero.localized_name)}`}
+            src={`${getHeroImage(hero.id)}`}
           />
         }
       >

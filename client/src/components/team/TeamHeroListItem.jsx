@@ -16,7 +16,7 @@ const TeamHeroListItem = ({
     <Table.Row>
       <Table.Cell>
         <Header as="h5" inverted>
-          <Image size="massive" src={getHeroImage(localized_name)} />
+          <Image size="massive" src={getHeroImage(hero_id)} />
           <Header.Content as={Link} to={`/heroes/${hero_id}`}>
             {localized_name} <Icon name="angle right" />
           </Header.Content>

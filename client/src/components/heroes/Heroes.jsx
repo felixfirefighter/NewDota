@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { Image, Grid, Popup, Header, Select } from "semantic-ui-react";
 import * as actions from "../../actions/heroActions";
-import { getHeroImage } from "../../utils/imageUtil";
 
 import HeroFilter from "./HeroFilter";
 import HeroPortraitList from "./HeroPortraitList";

@@ -17,3 +17,7 @@ body {
 .yellow.inverted {
   color: #ffe21f !important;
 }
+
+.grey.inverted {
+  color: #dcddde !important;
+}
