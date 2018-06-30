@@ -18,7 +18,7 @@ class MatchNavbar extends Component {
   render() {
     return (
       <Segment basic>
-        <Menu secondary inverted widths={2}>
+        <Menu secondary pointing inverted widths={2}>
           <Menu.Item as={NavLink} to="/heroes/stats" name="Stats" />
           <Menu.Item as={NavLink} to="/heroes/misc" name="Misc" />
         </Menu>

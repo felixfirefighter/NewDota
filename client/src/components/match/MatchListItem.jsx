@@ -34,6 +34,7 @@ const MatchListItem = ({
           <Header.Content>
             <Link
               to={`/teams/${radiant_team_id}`}
+              className="inverted green"
               style={{ marginRight: "4px" }}
             >
               {radiant_name}
@@ -46,7 +47,11 @@ const MatchListItem = ({
       <Table.Cell>
         <Header as="h5" inverted>
           <Header.Content>
-            <Link to={`/teams/${dire_team_id}`} style={{ marginRight: "4px" }}>
+            <Link
+              to={`/teams/${dire_team_id}`}
+              className="inverted red"
+              style={{ marginRight: "4px" }}
+            >
               {dire_name}
             </Link>{" "}
             {!radiant_win && <Icon name="trophy" className="yellow inverted" />}

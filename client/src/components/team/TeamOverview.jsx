@@ -11,12 +11,21 @@ import TeamHeroList from "./TeamHeroList";
 class TeamOverview extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
+    this.getTeamData(id);
+  }
 
+  componentWillReceiveProps(newProps) {
+    if (this.props.match.params.id !== newProps.match.params.id) {
+      this.getTeamData(newProps.match.params.id);
+    }
+  }
+
+  getTeamData = id => {
     this.props.getTeam(id);
     this.props.getTeamMatches(id);
     this.props.getTeamPlayers(id);
     this.props.getTeamHeroes(id);
-  }
+  };
 
   renderMatches = () => {
     const { matches } = this.props.teams;

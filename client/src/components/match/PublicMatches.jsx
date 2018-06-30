@@ -13,7 +13,7 @@ class PublicMatches extends Component {
   render() {
     const { publicMatches } = this.props.matches;
 
-    // console.log(publicMatches);
+    console.log(publicMatches);
 
     return (
       <div>
