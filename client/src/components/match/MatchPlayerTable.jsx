@@ -8,7 +8,7 @@ const MatchPlayerTable = ({ players }) => {
     <Table inverted>
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>
+          <Table.HeaderCell width={4}>
             <Header as="h5" inverted>
               Players
             </Header>
@@ -149,9 +149,7 @@ const MatchPlayerTable = ({ players }) => {
       </Table.Header>
       <Table.Body>
         {players.map(player => {
-          return (
-            <MatchPlayerListItem key={player.account_id} player={player} />
-          );
+          return <MatchPlayerListItem key={player.hero_id} player={player} />;
         })}
       </Table.Body>
     </Table>

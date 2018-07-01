@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Container } from "semantic-ui-react";
+import { Container, Segment } from "semantic-ui-react";
 import axios from "axios";
 import Home from "../home/Home";
 import Navbar from "./Navbar";
@@ -23,22 +23,25 @@ class App extends Component {
         <div>
           <Navbar />
           <Container style={{ paddingTop: "80px" }}>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/teams" component={Teams} />
-            <Route exact path="/teams/:id" component={TeamOverview} />
-            <Route path="/matches" component={MatchNavbar} />
-            <Switch>
-              <Route exact path="/matches/pro" component={ProMatches} />
-              <Route exact path="/matches/public" component={PublicMatches} />
-              <Route exact path="/matches/:id" component={MatchOverview} />
-            </Switch>
+            <Segment basic>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/teams" component={Teams} />
+              <Route exact path="/teams/:id" component={TeamOverview} />
 
-            <Route path="/heroes" component={HeroNavbar} />
+              <Switch>
+                <Route exact path="/matches" component={ProMatches} />
+                <Route exact path="/matches/pro" component={ProMatches} />
+                <Route exact path="/matches/public" component={PublicMatches} />
+                <Route exact path="/matches/:id" component={MatchOverview} />
+              </Switch>
 
-            <Switch>
-              <Route exact path="/heroes/stats" component={HeroStats} />
-              <Route exact path="/heroes/misc" component={Heroes} />
-            </Switch>
+              <Route path="/heroes" component={HeroNavbar} />
+
+              <Switch>
+                <Route exact path="/heroes/stats" component={HeroStats} />
+                <Route exact path="/heroes/misc" component={Heroes} />
+              </Switch>
+            </Segment>
           </Container>
         </div>
       </BrowserRouter>

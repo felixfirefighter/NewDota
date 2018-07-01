@@ -21,3 +21,11 @@ body {
 .grey.inverted {
   color: #dcddde !important;
 }
+
+.white.inverted {
+  color: #fff !important;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+}

@@ -7,14 +7,24 @@ import { kFormatter } from "../../utils/numberUtil";
 const MatchPlayerListItem = ({ player }) => {
   console.log(player);
 
+  const renderAccount = () => {
+    if (player.account_id) {
+      return (
+        <Header.Content as={Link} to={`/players/${player.account_id}`}>
+          {player.personaname || player.name} <Icon name="angle right" />
+        </Header.Content>
+      );
+    }
+
+    return <Header.Content className="grey inverted">Anonymous</Header.Content>;
+  };
+
   return (
     <Table.Row>
       <Table.Cell>
         <Header as="h5" inverted>
           <Image size="massive" src={getHeroImage(player.hero_id)} />
-          <Header.Content as={Link} to={`/players/${player.account_id}`}>
-            {player.personaname} <Icon name="angle right" />
-          </Header.Content>
+          {renderAccount()}
         </Header>
       </Table.Cell>
       <Table.Cell>

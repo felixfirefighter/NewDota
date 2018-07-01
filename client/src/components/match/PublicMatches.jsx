@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Table, Segment, Header } from "semantic-ui-react";
 
 import MatchList from "./MatchList";
+import MatchNavbar from "./MatchNavbar";
 import * as actions from "../../actions/matchActions";
 
 class PublicMatches extends Component {
@@ -17,6 +18,7 @@ class PublicMatches extends Component {
 
     return (
       <div>
+        <MatchNavbar />
         <Segment basic>
           <Table striped inverted>
             <Table.Header>

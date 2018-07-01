@@ -11,7 +11,7 @@ class MatchNavbar extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname === "/heroes") {
-      nextProps.history.replace("/matches/stats");
+      nextProps.history.replace("/heroes/stats");
     }
   }
 
