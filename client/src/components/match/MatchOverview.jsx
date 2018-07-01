@@ -5,6 +5,7 @@ import { Header, Table, Segment, Image, Icon } from "semantic-ui-react";
 import * as actions from "../../actions/matchActions";
 import LoadingComponent from "../layout/LoadingComponent";
 import MatchTeamHeader from "./MatchTeamHeader";
+import MatchBanList from "./MatchBanList";
 import { getHeroImage } from "../../utils/imageUtil";
 
 import MatchPlayerTable from "./MatchPlayerTable";
@@ -33,6 +34,10 @@ class MatchOverview extends Component {
         <MatchPlayerTable
           players={match.players.filter(player => player.isRadiant)}
         />
+
+        <MatchBanList draft_timings={match.draft_timings} active_team={2} />
+
+        <MatchBanList draft_timings={match.draft_timings} active_team={3} />
 
         <MatchTeamHeader
           isRadiant={false}
