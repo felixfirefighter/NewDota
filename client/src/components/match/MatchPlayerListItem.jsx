@@ -11,7 +11,7 @@ const MatchPlayerListItem = ({ player }) => {
     if (player.account_id) {
       return (
         <Header.Content as={Link} to={`/players/${player.account_id}`}>
-          {player.name} <Icon name="angle right" />
+          {player.name || player.personaname} <Icon name="angle right" />
         </Header.Content>
       );
     }

@@ -3,9 +3,9 @@ import moment from "moment";
 
 import { Header } from "semantic-ui-react";
 
-const DurationComponent = ({ duration, start_time }) => {
+const DurationComponent = ({ size, duration, start_time, style }) => {
   return (
-    <Header as="h5" inverted>
+    <Header as={size} inverted style={style}>
       <Header.Content style={{ marginBottom: "4px" }}>
         {moment.utc(duration * 1000).format("mm:ss")}
       </Header.Content>

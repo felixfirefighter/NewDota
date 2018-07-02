@@ -29,3 +29,19 @@ body {
 .ellipsis {
   text-overflow: ellipsis;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.text-large {
+  font-size: 200%;
+}
+
+.text-huge {
+  font-size: 300%;
+}
+
+.inline {
+  display: inline;
+}
