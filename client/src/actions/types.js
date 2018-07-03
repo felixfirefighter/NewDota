@@ -9,3 +9,4 @@ export const GET_PUBLIC_MATCHES = "GET_PUBLIC_MATCHES";
 export const GET_MATCH = "GET_MATCH";
 
 export const GET_HEROES = "GET_HEROES";
+export const GET_HERO_STATS = "GET_HERO_STATS";

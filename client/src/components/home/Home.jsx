@@ -1,11 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Home = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
-};
+class Home extends Component {
+  componentDidMount() {
+    if (this.props.location && this.props.location.pathname === "/") {
+      this.props.history.replace("/matches/pro");
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location && nextProps.location.pathname === "/") {
+      nextProps.history.replace("/matches/pro");
+    }
+  }
+
+  render() {
+    return <div />;
+  }
+}
 
 export default Home;

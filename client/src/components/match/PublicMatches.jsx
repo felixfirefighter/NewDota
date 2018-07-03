@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Table, Segment, Header } from "semantic-ui-react";
 
-import MatchList from "./MatchList";
+import PublicMatchList from "./PublicMatchList";
 import MatchNavbar from "./MatchNavbar";
 import * as actions from "../../actions/matchActions";
 
@@ -27,12 +27,11 @@ class PublicMatches extends Component {
                 <Table.HeaderCell>Duration</Table.HeaderCell>
                 <Table.HeaderCell>Radiant</Table.HeaderCell>
                 <Table.HeaderCell>Dire</Table.HeaderCell>
-                <Table.HeaderCell>Score</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
-              <MatchList matches={publicMatches} />
+              <PublicMatchList matches={publicMatches} />
             </Table.Body>
           </Table>
         </Segment>

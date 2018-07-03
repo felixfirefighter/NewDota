@@ -30,22 +30,13 @@ class MatchOverview extends Component {
         <Grid verticalAlign="middle">
           <Grid.Column width={5}>
             {match.radiant_win ? (
-              <Header
-                as="h1"
-                inverted
-                color="green"
-                style={{ textTransform: "uppercase" }}
-              >
-                {match.radiant_team.name} Victory
+              <Header as="h1" inverted color="green">
+                {match.radiant_team ? match.radiant_team.name : "Radiant"}{" "}
+                Victory!
               </Header>
             ) : (
-              <Header
-                as="h1"
-                inverted
-                color="red"
-                style={{ textTransform: "uppercase" }}
-              >
-                {match.dire_team.name} Victory
+              <Header as="h1" inverted color="red">
+                {match.dire_team ? match.dire_team.name : "Dire"} Victory!
               </Header>
             )}
           </Grid.Column>
@@ -80,11 +71,13 @@ class MatchOverview extends Component {
             </div>
           </Grid.Column>
           <Grid.Column width={5}>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <div style={{ margin: "8px" }}>
                 <Header as="h4" inverted style={{ textAlign: "right" }}>
                   <span style={{ textTransform: "uppercase" }}>League</span>
-                  <Header.Subheader>{match.league.name}</Header.Subheader>
+                  <Header.Subheader>
+                    {match.league ? match.league.name : "Unknown"}
+                  </Header.Subheader>
                 </Header>
               </div>
               <div style={{ margin: "8px" }}>
@@ -99,9 +92,9 @@ class MatchOverview extends Component {
 
         <MatchTeamHeader
           isRadiant={true}
-          logo={match.radiant_team.logo_url}
-          name={match.radiant_team.name}
-          team_id={match.radiant_team.team_id}
+          logo={match.radiant_team ? match.radiant_team.logo_url : null}
+          name={match.radiant_team ? match.radiant_team.name : null}
+          team_id={match.radiant_team ? match.radiant_team.team_id : null}
         />
         <MatchPlayerTable
           players={match.players.filter(player => player.isRadiant)}
@@ -121,9 +114,9 @@ class MatchOverview extends Component {
 
         <MatchTeamHeader
           isRadiant={false}
-          logo={match.dire_team.logo_url}
-          name={match.dire_team.name}
-          team_id={match.dire_team.team_id}
+          logo={match.dire_team ? match.dire_team.logo_url : null}
+          name={match.dire_team ? match.dire_team.name : null}
+          team_id={match.dire_team ? match.dire_team.team_id : null}
         />
 
         <MatchPlayerTable

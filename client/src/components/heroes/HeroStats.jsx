@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Image } from "semantic-ui-react";
+import { Image, Table, Popup, Header } from "semantic-ui-react";
 import * as actions from "../../actions/heroActions";
 import { getHeroImage } from "../../utils/imageUtil";
+import HeroStatHeader from "./HeroStatHeader";
+import { heroRankHeaders } from "../../constants/data";
 
 class HeroStats extends Component {
+  componentDidMount() {
+    this.props.getHeroStats();
+  }
+
   render() {
-    const { heroes } = this.props.heroes;
-    console.log(heroes);
-    return (
-      <div>
-        <h1>Hello World</h1>
-      </div>
-    );
+    const { stats } = this.props.heroes;
+    console.log(stats);
+    return <Header inverted>Work In Progress</Header>;
   }
 }
 

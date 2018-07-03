@@ -27,7 +27,11 @@ const MatchListItem = ({
         <LeagueComponent match_id={match_id} league_name={league_name} />
       </Table.Cell>
       <Table.Cell>
-        <DurationComponent duration={duration} start_time={start_time} />
+        <DurationComponent
+          size="h5"
+          duration={duration}
+          start_time={start_time}
+        />
       </Table.Cell>
       <Table.Cell>
         <Header as="h5" inverted>

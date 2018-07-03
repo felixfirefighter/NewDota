@@ -6,7 +6,6 @@ import Home from "../home/Home";
 import Navbar from "./Navbar";
 import Teams from "../team/Teams";
 import TeamOverview from "../team/TeamOverview";
-import MatchNavbar from "../match/MatchNavbar";
 import ProMatches from "../match/ProMatches";
 import PublicMatches from "../match/PublicMatches";
 import MatchOverview from "../match/MatchOverview";
